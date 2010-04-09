@@ -1,4 +1,4 @@
-﻿# Rack::VersionHeader
+# Rack::VersionHeader
 
 Rack middleware for adding a (git|svn|you-name-it) version response header.
 
