@@ -12,10 +12,36 @@ Rack middleware for adding a (git|svn|you-name-it) version response header.
     require "rack/version_header"
 
     use Rack::VersionHeader,
-      :header_name  => 'X-MyService-Git-Revision', # default 'X-Version'
-      :version_file => '.gitrevision'              # default '.version'
+      :header_name  => 'X-MyService-Version',   # default 'X-Version'
+      :version_file => '.version'               # default '.version'
 
     run app
+
+## Example usage with Git
+
+Provided you have `git` in your path you can add to your `config.ru`
+
+    require "rack/version_header"
+
+    gitsha = `git rev-parse --short HEAD`
+    file   = File.dirname(__FILE__) + '/.gitsha'
+    File.open(file, 'w') {|f| f.write(gitsha) }
+
+    use Rack::VersionHeader,
+      :header_name  => 'X-MyService-Git-Revision',
+      :version_file => f.path
+
+    run app
+
+Then your response headers will look somewhat like
+
+    HTTP/1.1 200 OK 
+    Connection: Keep-Alive
+    Content-Type: text/plain
+    Date: Fri, 09 Apr 2010 11:25:07 GMT
+    Server: WEBrick/1.3.1 (Ruby/1.8.7/2010-01-10)
+    X-MyService-Git-Revision: 213addf
+    Content-Length: 3370
 
 
 ## License
