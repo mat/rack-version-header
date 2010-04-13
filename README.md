@@ -19,7 +19,7 @@ Rack middleware for adding a (git|svn|you-name-it) version response header.
 
 ## Example usage with Git
 
-Provided you have the `git` excutable in your path you can add to your `config.ru`
+Provided you have the `git` executable in your path you can add to your `config.ru`
 
     require "rack/version_header"
 
