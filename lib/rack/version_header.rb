@@ -2,7 +2,6 @@ module Rack
 
   # Rack Version Header
   # A Rack middleware for adding a version response header
-  # git show-ref --verify refs/heads/master --hash=8
   class VersionHeader
     F = ::File
 
