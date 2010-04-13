@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.platform    = Gem::Platform::RUBY
 
   gem.summary     = "Rack middleware for adding a version response header."
-  gem.description = "Adds an X-Version header to each response set to an arbitrary version string read from a file."
+  gem.description = "Adds an X-Version response header set to a (git|svn|arbitrary) version string read from a file."
 
   gem.authors     = ["Matthias Luedtke"]
   gem.email       = ["email@matthias-luedtke.de"]
